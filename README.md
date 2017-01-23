@@ -3,7 +3,7 @@ Basic timer app that includes setting break rounds etc, basically I'm aiming for
 
 ## To Do: ##
 
--- MVP pattern design.
--- Basic Functionality for creating and running multiple rounds at set time.
--- add break round functionality.
--- add sounds.
+* MVP pattern design.
+* Basic Functionality for creating and running multiple rounds at set time.
+* add break round functionality.
+* add sounds.

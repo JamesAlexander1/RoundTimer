@@ -12,4 +12,7 @@ public class TimerDisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer_display);
     }
+
+
+
 }

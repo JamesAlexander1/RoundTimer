@@ -1,6 +1,6 @@
 package a4336.a0.practise.james.roundtimer.Presenter;
 
-import a4336.a0.practise.james.roundtimer.DAO.IDAO;
+import a4336.a0.practise.james.roundtimer.DTO.IDTO;
 
 /**
  * Created by james on 30/1/17.
@@ -31,7 +31,7 @@ public abstract class AbstractPresenter<E> {
 
         public abstract void onResume();
 
-        public abstract IDAO<E> retrieveModel();
+        public abstract IDTO<E> retrieveModel();
 
 
 }

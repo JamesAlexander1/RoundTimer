@@ -1,11 +1,11 @@
 package a4336.a0.practise.james.roundtimer.Model;
 
 
-import a4336.a0.practise.james.roundtimer.DAO.IDAO;
+import a4336.a0.practise.james.roundtimer.DTO.IDTO;
 
 public interface ModelInterface<E> {
 
-    IDAO<E> getData();
+    IDTO<E> getData();
 
     boolean clean();
 }

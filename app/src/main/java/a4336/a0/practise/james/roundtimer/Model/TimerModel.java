@@ -1,6 +1,6 @@
 package a4336.a0.practise.james.roundtimer.Model;
 
-import a4336.a0.practise.james.roundtimer.DAO.IDAO;
+import a4336.a0.practise.james.roundtimer.DTO.IDTO;
 import android.os.CountDownTimer;
 /**
  * Created by james on 24/1/17.
@@ -13,7 +13,7 @@ public class TimerModel<String> implements ModelInterface<String> {
 
     }
     @Override
-    public IDAO<String> getData() {
+    public IDTO<String> getData() {
         return null;
     }
 

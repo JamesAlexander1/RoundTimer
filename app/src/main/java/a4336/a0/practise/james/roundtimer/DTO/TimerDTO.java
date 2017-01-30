@@ -1,11 +1,11 @@
-package a4336.a0.practise.james.roundtimer.DAO;
+package a4336.a0.practise.james.roundtimer.DTO;
 
 
 /**
  * may or may not use this.
  */
 
-public class TimerDAO implements IDAO<String>{
+public class TimerDAO implements IDTO<String> {
 
 
 

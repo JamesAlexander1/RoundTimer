@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TableLayout;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import a4336.a0.practise.james.roundtimer.Model.TimerModel;
@@ -19,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
     private AbstractPresenter<Integer> presenter;
 
+    private TextView num_rounds_text;
+    private TextView length_rounds_text;
+    private TextView length_break;
+    private TextView num_of_rounds_per_break;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -55,15 +60,27 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        num_rounds_text = (TextView) findViewById(R.id.Set_Length_Rounds_Text);
+        /*
+        More textViews initalised.
+         */
+
         Button startButton = (Button) findViewById(R.id.Start_Button);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                /**
+                 * call onStartButtonPressed. Pass Timer config to TimerActivity.
+                 */
+                onStartButtonPressed();
             }
         });
     }
 
+    /**
+     * On Start Button Pressed. Take Information, encapsulate in DTO. Move to TimerActivity and onto presenter.
+     */
     public void onStartButtonPressed(){}
 
     @Override

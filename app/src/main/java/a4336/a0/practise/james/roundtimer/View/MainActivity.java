@@ -1,20 +1,24 @@
-package a4336.a0.practise.james.roundtimer;
+package a4336.a0.practise.james.roundtimer.View;
 
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TableLayout;
 import android.widget.ToggleButton;
 
 import a4336.a0.practise.james.roundtimer.Model.TimerModel;
+import a4336.a0.practise.james.roundtimer.Presenter.AbstractPresenter;
 import a4336.a0.practise.james.roundtimer.Presenter.MainPresenter;
-import a4336.a0.practise.james.roundtimer.Presenter.PresenterInterface;
+import a4336.a0.practise.james.roundtimer.R;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private PresenterInterface presenter;
+    private AbstractPresenter<Integer> presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -28,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void Initialise(){
 
-        presenter = new MainPresenter(new TimerModel());
+        presenter = new MainPresenter(this);
     }
     private void InitialiseButtonsAndViews(){
 
@@ -50,7 +54,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
+
+        Button startButton = (Button) findViewById(R.id.Start_Button);
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
+
+    public void onStartButtonPressed(){}
+
     @Override
     protected void onStart() {
 

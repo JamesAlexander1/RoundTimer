@@ -1,20 +1,25 @@
 package a4336.a0.practise.james.roundtimer.Presenter;
 
-import java.util.Timer;
+import android.app.Activity;
+import android.os.CountDownTimer;
 
 import a4336.a0.practise.james.roundtimer.DAO.IDAO;
+import a4336.a0.practise.james.roundtimer.DAO.TimerDAO;
 import a4336.a0.practise.james.roundtimer.Model.ModelInterface;
 
 /**
  * Created by james on 24/1/17.
  */
 
-public class MainPresenter<Timer> implements PresenterInterface<Timer> {
+public class MainPresenter<Integer> extends AbstractPresenter<Integer> {
 
-    ModelInterface<Timer> model;
+    Activity mainActivity;
+    //ModelInterface<Integer> model;
 
-    public MainPresenter(ModelInterface paramModel){
-        model = paramModel;
+
+    public MainPresenter(Activity main){
+       mainActivity = main;
+
     }
     @Override
     public void onStart() {
@@ -39,11 +44,7 @@ public class MainPresenter<Timer> implements PresenterInterface<Timer> {
     @Override
     public void onStop() {
 
-        if(model.clean()){
-            model = null;
-        }else{
-            // Handle Exception.
-        }
+        mainActivity = null;
 
     }
 
@@ -53,7 +54,20 @@ public class MainPresenter<Timer> implements PresenterInterface<Timer> {
     }
 
     @Override
-    public IDAO<Timer> retrieveModel() {
+    public IDAO<Integer> retrieveModel() {
         return null;
     }
+
+    public boolean setAllTimers(TimerDAO timerDAO){
+        /**
+         * TimerDAO class should use interface variable instead.
+         */
+        setWorkRoundTimer(timerDAO.getWork_rounds_number(), timerDAO.getNum_of_work_rounds_before_break(), timerDAO.getRound_minute(), timerDAO.getRound_sec_on_minute_left());
+        setBreakRoundTimer(timerDAO.getBreak_round_length());
+        return true;
+    }
+    private void setWorkRoundTimer(int num_rounds,int num_groups, int minute_per_round, int seconds){}
+    private void setBreakRoundTimer(int seconds){}
+
+
 }

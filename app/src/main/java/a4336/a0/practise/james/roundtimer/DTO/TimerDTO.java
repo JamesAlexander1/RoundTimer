@@ -1,11 +1,13 @@
 package a4336.a0.practise.james.roundtimer.DTO;
 
 
+import java.io.Serializable;
+
 /**
  * may or may not use this.
  */
 
-public class TimerDAO implements IDTO<String> {
+public class TimerDTO implements IDTO<String>, Serializable {
 
 
 
@@ -18,7 +20,7 @@ public class TimerDAO implements IDTO<String> {
 
     private Integer num_of_work_rounds_before_break;
 
-    public TimerDAO(Integer w_r_n, Integer r_m_l, Integer r_s_o_m_l, Integer b_r_l, Integer n_w_r_b_b){
+    public TimerDTO(Integer w_r_n, Integer r_m_l, Integer r_s_o_m_l, Integer b_r_l, Integer n_w_r_b_b){
 
         work_rounds_number = w_r_n;
         round_minute = r_m_l;

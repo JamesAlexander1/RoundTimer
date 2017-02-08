@@ -4,6 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import a4336.a0.practise.james.roundtimer.DTO.TimerDTO;
 import a4336.a0.practise.james.roundtimer.Presenter.AbstractPresenter;
@@ -14,6 +18,11 @@ public class TimerDisplayActivity extends AppCompatActivity {
 
     private AbstractPresenter<String> presenter;
     private boolean timerType;  //true = work round, false = break round.
+
+    private EditText timerNumDisplay;
+    private TextView timerTypeDisplay;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +32,17 @@ public class TimerDisplayActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 finish();
             }
         });
 
 
+        timerTypeDisplay = (TextView) findViewById(R.id.round_number_view);
+        timerNumDisplay = (EditText) findViewById(R.id.Timer_Display_EditText);
+
         TimerDTO settings = (TimerDTO) getIntent().getSerializableExtra("dto");
-        presenter = new TimerPresenter<>(settings);
+        presenter = new TimerPresenter<>(this, settings);
 
 
 
@@ -81,9 +94,15 @@ public class TimerDisplayActivity extends AppCompatActivity {
 
     }
 
-    public void setTimer(){}
+
+    /**
+     *
+     * USE TIMEUNIT java.util stuff to convert from milliseconds to minutes and seconds.
+     */
+
+    public void setTimer(String timerLength){}
     public void deincrementTimer(){}
-    public void setTimerType(){}
+    public void setTimerType(boolean isWorkRound){}
     public void finishAndSetNextTimer(){}
 
 
